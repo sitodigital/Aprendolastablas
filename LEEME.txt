@@ -32,3 +32,14 @@ INSTALACIÓN EN ANDROID
 
 
 VERSIÓN 6.0: corregido el juego Número perdido. Ahora se valida el multiplicando que falta (por ejemplo, 9 × __ = 54: respuesta 6), no el producto.
+
+
+VERSIÓN 7.0: RECORDATORIO DIARIO
+- Añade una hora de recordatorio en la pantalla de inicio y permite activarlo/desactivarlo.
+- Solicita permiso de notificaciones del navegador si está disponible.
+- Si la aplicación está abierta, comprueba la hora y muestra un aviso diario.
+- Registra los días de práctica y muestra una racha de días consecutivos.
+- El progreso y la configuración se guardan localmente.
+
+IMPORTANTE SOBRE NOTIFICACIONES
+En una PWA web gratuita no se puede garantizar una notificación programada cuando el navegador y la aplicación están completamente cerrados sin configurar un servicio push/servidor. El recordatorio funciona mientras la app está abierta y al volver a abrirla comprueba si ya ha llegado la hora. Para un aviso garantizado con la app cerrada, configura también una alarma diaria en el móvil.
