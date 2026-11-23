@@ -1,0 +1,24 @@
+MI MUNDO DE LAS TABLAS - AVENTURA v4.0
+
+CONTENIDO
+- index.html: aplicación completa.
+- manifest.webmanifest: configuración de instalación PWA.
+- sw.js: funcionamiento offline y actualización de caché v4.
+- icons/: favicon e iconos de instalación.
+
+PUBLICAR EN GITHUB PAGES
+1. Descarga este ZIP y descomprímelo.
+2. Abre el repositorio de GitHub donde publicaste la versión anterior.
+3. Sube TODOS los elementos de esta carpeta a la raíz del repositorio: index.html, manifest.webmanifest, sw.js, LEEME.txt e icons/.
+4. Si GitHub pregunta si debe reemplazar index.html, manifest.webmanifest y sw.js, confirma el reemplazo. Mantén la carpeta icons completa.
+5. Pulsa Commit changes y espera a que GitHub Pages publique los cambios.
+6. Abre la dirección de tu PWA. Si ves la versión anterior, cierra la aplicación instalada y vuelve a abrirla; el service worker v4 elimina la caché antigua y descarga los nuevos archivos.
+
+AVENTURA
+- 4 mundos y 12 misiones.
+- Cada misión tiene 10 preguntas; hacen falta 8 aciertos para superarla.
+- Completar las 3 misiones de un mundo concede su tesoro y desbloquea el mundo siguiente.
+- El progreso se guarda en el dispositivo mediante almacenamiento local. No necesita cuenta ni Supabase.
+
+CRÉDITOS
+Realizado por Alfonso M. Martín Boza
