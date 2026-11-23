@@ -53,7 +53,7 @@ input[type=number]{font:inherit;font-size:24px;font-weight:900;text-align:center
 <div class="app">
 <header>
  <div class="brand"><div class="owl">🦉</div><div><h1>Mi mundo de las tablas</h1><p>¡Multiplica, juega y conquista!</p></div></div>
- <div class="top-right"><span class="pill">⭐ <b id="stars">0</b></span><button class="sound" id="soundToggle" aria-label="Activar o desactivar sonido">🔊</button></div>
+ <div class="top-right"><button class="secondary" id="installBtn" type="button" style="display:none;padding:9px 12px;font-size:12px">📲 Instalar</button><span class="pill">⭐ <b id="stars">0</b></span><button class="sound" id="soundToggle" aria-label="Activar o desactivar sonido">🔊</button></div>
 </header>
 <main id="home" class="view active">
  <section class="hero"><div><h2>¡Hola, campeona! 👋</h2><p>Un ratito cada día y pronto las tablas saldrán solas. ¿Preparada para el reto?</p></div><div class="mascot">🦉</div></section>
@@ -145,6 +145,25 @@ function launchMission(wid,mid){let w=worlds.find(x=>x.id===wid);if(!w||!worldUn
 function renderProgress(){ $('totalCorrect').textContent=stats.correct;$('totalQuestions').textContent=stats.total;let h='';for(let i=1;i<=10;i++){let s=stats.byTable[i]||{c:0,t:0},p=s.t?Math.round(s.c/s.t*100):0;h+=`<div class="setting"><b>Tabla del ${i}</b><span>${p}% · ${s.c}/${s.t} aciertos</span></div>`;}$('progressBars').innerHTML=h;}
 function resetProgress(){if(confirm('¿Seguro que quieres borrar todo el progreso guardado en este dispositivo?')){stats={correct:0,total:0,byTable:{},wrong:{},stars:0,adventure:{}};save();renderAdventure();renderProgress();}}
 buildLearn();renderBars();renderAdventure();save();
-if('serviceWorker'in navigator && location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+// Instalación PWA: botón visible cuando el navegador ofrece el instalador.
+let deferredInstallPrompt=null;
+const installBtn=document.getElementById('installBtn');
+window.addEventListener('beforeinstallprompt',event=>{
+ event.preventDefault(); deferredInstallPrompt=event; installBtn.style.display='inline-flex';
+});
+installBtn.addEventListener('click',async()=>{
+ if(deferredInstallPrompt){
+  deferredInstallPrompt.prompt();
+  const choice=await deferredInstallPrompt.userChoice;
+  deferredInstallPrompt=null;
+  if(choice&&choice.outcome==='accepted')installBtn.style.display='none';
+ }else{
+  alert('Para instalar MI MUNDO DE LAS TABLAS:\n\n1. Abre esta página en Google Chrome.\n2. Pulsa el menú ⋮ de Chrome.\n3. Elige «Instalar aplicación» o «Añadir a pantalla de inicio».\n\nSi no aparece esa opción, espera un momento y comprueba que estás en la dirección HTTPS de GitHub Pages.');
+ }
+});
+window.addEventListener('appinstalled',()=>{installBtn.style.display='none';deferredInstallPrompt=null;});
+if('serviceWorker' in navigator && location.protocol==='https:'){
+ window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').then(()=>console.info('PWA: service worker activo')).catch(err=>console.error('PWA: error al registrar service worker',err)));
+}
 </script>
 </body></html>

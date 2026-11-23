@@ -1,9 +1,9 @@
-MI MUNDO DE LAS TABLAS - AVENTURA v4.0
+MI MUNDO DE LAS TABLAS - AVENTURA v5.0 - INSTALACIÓN CORREGIDA
 
 CONTENIDO
 - index.html: aplicación completa.
 - manifest.webmanifest: configuración de instalación PWA.
-- sw.js: funcionamiento offline y actualización de caché v4.
+- sw.js: funcionamiento offline y actualización de caché v5.
 - icons/: favicon e iconos de instalación.
 
 PUBLICAR EN GITHUB PAGES
@@ -22,3 +22,10 @@ AVENTURA
 
 CRÉDITOS
 Realizado por Alfonso M. Martín Boza
+
+
+INSTALACIÓN EN ANDROID
+- Abre la web publicada con Google Chrome (no desde la vista previa de GitHub ni desde otra app).
+- Si aparece el botón 📲 Instalar en la cabecera, púlsalo.
+- Si no aparece, abre el menú ⋮ de Chrome y selecciona Instalar aplicación o Añadir a pantalla de inicio.
+- La opción de instalación solo aparece cuando GitHub Pages ha publicado todos los archivos y Chrome reconoce el manifest y el service worker.

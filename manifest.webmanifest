@@ -1,0 +1,25 @@
+{
+  "name": "Mi mundo de las tablas",
+  "short_name": "Mis tablas",
+  "description": "Aprende y repasa las tablas de multiplicar jugando.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f5ff",
+  "theme_color": "#7057d9",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "id": "./"
+}
