@@ -29,3 +29,6 @@ INSTALACIÓN EN ANDROID
 - Si aparece el botón 📲 Instalar en la cabecera, púlsalo.
 - Si no aparece, abre el menú ⋮ de Chrome y selecciona Instalar aplicación o Añadir a pantalla de inicio.
 - La opción de instalación solo aparece cuando GitHub Pages ha publicado todos los archivos y Chrome reconoce el manifest y el service worker.
+
+
+VERSIÓN 6.0: corregido el juego Número perdido. Ahora se valida el multiplicando que falta (por ejemplo, 9 × __ = 54: respuesta 6), no el producto.
